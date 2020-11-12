@@ -9,14 +9,54 @@ namespace inlamningsuppgift2
 {
     class Person
     {
-        public string namn, adress, telefon, email;
+        public string name, address, telephone, email;
         public Person(string N, string A, string T, string E)
         {
-            namn = N; adress = A; telefon = T; email = E;
+            name = N;
+            address = A;
+            telephone = T;
+            email = E;
         }
+
+        public Person()
+        {
+            Console.Write("  1. ange namn:    ");
+            name = Console.ReadLine();
+            Console.Write("  2. ange adress:  ");
+            address = Console.ReadLine();
+            Console.Write("  3. ange telefon: ");
+            telephone = Console.ReadLine();
+            Console.Write("  4. ange email:   ");
+            email = Console.ReadLine();
+        }
+
+        public void AddInformation(string variable, string value)
+        {
+            if (variable == "name") 
+            {
+                name = value;
+            }
+            else if (variable == "address")
+            {
+                address = value;
+            }
+            else if (variable == "telephone")
+            {
+                telephone = value;
+            }
+            else if (variable == "email")
+            {
+                email = value;
+            }
+            else
+            {
+                Console.WriteLine("Please enter valid variable name.");
+            }
+        }
+        
         public void Print() 
         {
-            Console.WriteLine($"{namn}, {adress}, {telefon}, {email}");
+            Console.WriteLine($"{name}, {address}, {telephone}, {email}");
         }
     }
     class Program
@@ -78,7 +118,7 @@ namespace inlamningsuppgift2
             int found = -1;
             for (int i = 0; i < Dict.Count(); i++)
             {
-                if (Dict[i].namn == villÄndra) found = i;
+                if (Dict[i].name == villÄndra) found = i;
             }
             if (found == -1)
             {
@@ -92,9 +132,9 @@ namespace inlamningsuppgift2
                 string nyttVärde = Console.ReadLine();
                 switch (fältAttÄndra)
                 {
-                    case "namn": Dict[found].namn = nyttVärde; break;
-                    case "adress": Dict[found].adress = nyttVärde; break;
-                    case "telefon": Dict[found].telefon = nyttVärde; break;
+                    case "namn": Dict[found].name = nyttVärde; break;
+                    case "adress": Dict[found].address = nyttVärde; break;
+                    case "telefon": Dict[found].telephone = nyttVärde; break;
                     case "email": Dict[found].email = nyttVärde; break;
                     default: break;
                 }
@@ -108,7 +148,7 @@ namespace inlamningsuppgift2
             int found = -1;
             for (int i = 0; i < Dict.Count(); i++)
             {
-                if (Dict[i].namn == villTaBort) found = i;
+                if (Dict[i].name == villTaBort) found = i;
             }
             if (found == -1)
             {
@@ -122,18 +162,8 @@ namespace inlamningsuppgift2
 
         private static Person AddPerson()
         {
-            
             Console.WriteLine("Lägger till ny person");
-            Console.Write("  1. ange namn:    ");
-            string name = Console.ReadLine();
-            Console.Write("  2. ange adress:  ");
-            string adress = Console.ReadLine();
-            Console.Write("  3. ange telefon: ");
-            string telefon = Console.ReadLine();
-            Console.Write("  4. ange email:   ");
-            string email = Console.ReadLine();
-            Person P = new Person(name, adress, telefon, email);
-
+            Person P = new Person();
             return P;
         }
 
