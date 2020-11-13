@@ -14,6 +14,7 @@ namespace inlamningsuppgift2
          */
 
         public string name, address, telephone, email;
+
         public Person(string N, string A, string T, string E)
         {
             /* METHOD: Person (constructor)
@@ -83,11 +84,12 @@ namespace inlamningsuppgift2
         
         public void Print() 
         {
-            /* METHOD: Print 
+            /* METHOD: Print
              * PURPOSE: Used to print the contact information of a given Person object
              * PARAMETERS: none
              * RETURN VALUE: none
              */
+
             Console.WriteLine($"{name}, {address}, {telephone}, {email}");
         }
     }
@@ -106,8 +108,10 @@ namespace inlamningsuppgift2
             string filePath = @"C:\Users\sebas\Dropbox\Programmering\vs\Progmet\inlamningsuppgift2\address.txt";
             Dict.AddRange(LoadFile(filePath));
             
+            // Greeting message:
             Console.WriteLine("Hello and welcome to the address list");
             Console.WriteLine("Write 'stop' to stop!");
+
             string command;
             do
             {
